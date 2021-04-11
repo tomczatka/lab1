@@ -33,6 +33,7 @@ jl od_N_do_Z
 cmpb $'M', input(%ebp)
 jg od_N_do_Z
 add $13, input(%ebp)
+jmp od_N_do_Z
 
 
 od_N_do_Z:
@@ -44,6 +45,16 @@ sub $13, input(%ebp)
 
 
 od_a_do_m:
+cmpb $'a', input(%ebp)
+jl od_n_do_z
+cmpb $'m', input(%ebp)
+jg od_n_do_z
+add $13, input(%ebp)
+jmp od_n_do_z
+
+od_n_do_z:
+
+
 
 inc %ebp
 cmp %esp, %ebp
