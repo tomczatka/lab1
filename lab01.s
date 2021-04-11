@@ -27,15 +27,23 @@ dec %esp
 mov $0, %ebp
 
 petla:
-od_A_do_N:
+od_A_do_M:
 cmpb $'A', input(%ebp)
 jl od_N_do_Z
-cmpb $'N', input(%ebp)
+cmpb $'M', input(%ebp)
 jg od_N_do_Z
 add $13, input(%ebp)
 
 
 od_N_do_Z:
+cmpb $'N', input(%ebp)
+jl od_a_do_m
+cmpb $'Z', input(%ebp)
+jg od_a_do_m
+sub $13, input(%ebp)
+
+
+od_a_do_m:
 
 inc %ebp
 cmp %esp, %ebp
