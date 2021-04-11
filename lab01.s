@@ -15,7 +15,7 @@ input: .space input_len
 
 .text
 
-_start
+_start:
 mov $SYSREAD, %eax
 mov $STDIN, %ebx
 mov $input, %ecx
@@ -32,4 +32,4 @@ int $SYSCALL32
 
 mov $SYSEXIT32, %eax
 mov $EXIT_SUCESS, %ebx
-int SYSCALL32
+int $SYSCALL32
