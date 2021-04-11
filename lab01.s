@@ -24,6 +24,12 @@ int $SYSCALL32
 
 mov %eax, %esp
 dec %esp
+mov $0, %ebp
+
+petla:
+inc %ebp
+cmp %esp, %ebp
+jl petla
 
 mov $SYSWRITE, %eax
 mov $STDOUT, %ebx
