@@ -29,17 +29,16 @@ mov $0, %ebp
 petla:
 od_A_do_M:
 cmpb $'A', input(%ebp)
-jl od_N_do_Z
+jl koniec
 cmpb $'M', input(%ebp)
 jg od_N_do_Z
 add $13, input(%ebp)
-jmp od_N_do_Z
 
 
 od_N_do_Z:
 cmpb $'N', input(%ebp)
 jl od_a_do_m
-cmpb $'Z', input(%ebp)
+cmpb  $'Z', input(%ebp)
 jg od_a_do_m
 sub $13, input(%ebp)
 
@@ -50,12 +49,16 @@ jl od_n_do_z
 cmpb $'m', input(%ebp)
 jg od_n_do_z
 add $13, input(%ebp)
-jmp od_n_do_z
+
 
 od_n_do_z:
+cmpb $'n', input(%ebp)
+jl koniec
+cmpb $'z', input(%ebp)
+jg koniec
+sub $13, input(%ebp)
 
-
-
+koniec:
 inc %ebp
 cmp %esp, %ebp
 jl petla
