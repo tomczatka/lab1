@@ -33,7 +33,7 @@ jl koniec
 cmpb $'M', input(%ebp)
 jg od_N_do_Z
 add $13, input(%ebp)
-
+jmp koniec
 
 od_N_do_Z:
 cmpb $'N', input(%ebp)
@@ -41,7 +41,7 @@ jl od_a_do_m
 cmpb  $'Z', input(%ebp)
 jg od_a_do_m
 sub $13, input(%ebp)
-
+jmp koniec
 
 od_a_do_m:
 cmpb $'a', input(%ebp)
@@ -49,7 +49,7 @@ jl od_n_do_z
 cmpb $'m', input(%ebp)
 jg od_n_do_z
 add $13, input(%ebp)
-
+jmp koniec
 
 od_n_do_z:
 cmpb $'n', input(%ebp)
