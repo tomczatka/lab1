@@ -13,9 +13,21 @@ input_len = 100
 .data
 input: .space input_len
 
+buf: .ascii "Podaj zdanie do zaszyfrowania: "
+buf_len = .-buf
+
+buf1: .ascii "Zaszyfrowane zdanie to: "
+buf1_len = .-buf1
+
 .text
 
 _start:
+mov $SYSWRITE, %eax
+mov $STDOUT, %ebx
+mov $buf, %ecx
+mov $buf_len,%edx
+int $SYSCALL32
+
 mov $SYSREAD, %eax
 mov $STDIN, %ebx
 mov $input, %ecx
@@ -62,6 +74,12 @@ koniec:
 inc %ebp
 cmp %esp, %ebp
 jl petla
+
+mov $SYSWRITE, %eax
+mov $STDOUT, %ebx
+mov $buf1, %ecx
+mov $buf1_len,%edx
+int $SYSCALL32
 
 mov $SYSWRITE, %eax
 mov $STDOUT, %ebx
