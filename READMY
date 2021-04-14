@@ -1,0 +1,7 @@
+Program szyfruje wpisane zdanie za pomocą ROT13
+
+do uruchomienia programu potrzebne jest zainstalowanie make na linuxie
+
+Aby uruchomić program należy bedąc w folderze projektu w konsoli wpisać komende "make" a następnie "./lab01"
+
+Po wypisaniu przez program komunikatu należy wpisać zdanie, a nastepnie program  wypisze zaszyfrowaną wersje tego zdania.
